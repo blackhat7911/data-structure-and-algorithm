@@ -1,5 +1,6 @@
 package queue;
 
+// queue using stack
 public class Queue {
 	
 	static Stack stack1 = new Stack();
