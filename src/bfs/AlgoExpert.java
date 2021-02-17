@@ -27,6 +27,7 @@ public class AlgoExpert {
 			// head 1st node but tail for new coming nodes
 			// head not change position but tail do change
 			tail.next = newNode;
+			tail = newNode;
 		}
 		
 	}
@@ -70,8 +71,8 @@ public class AlgoExpert {
 		algo.enQueue(20);
 		algo.enQueue(30);
 		algo.printList();
-//		algo.deQueue();
-//		algo.printList();
+		algo.deQueue();
+		algo.printList();
 		
 	}
 	
