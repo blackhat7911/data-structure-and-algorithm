@@ -5,7 +5,7 @@ public class Graph {
 	// G = O(V,E)
 	// in DSA graph is collection of node and edges.
 	public static void main(String[] args) {
-		AdjacencyMatrix mat = new AdjacencyMatrix();
+		AdjacencyMatrix mat = new AdjacencyMatrix(4);
 		mat.addEdges(0, 1);
 		mat.addEdges(0, 2);
 		mat.addEdges(0, 3);

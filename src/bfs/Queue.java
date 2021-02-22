@@ -1,7 +1,7 @@
 package bfs;
 
 // queue using linked list
-public class AlgoExpert {
+public class Queue {
 	
 	public static class Node{
 		int data;
@@ -66,7 +66,7 @@ public class AlgoExpert {
 	
 	public static void main(String[] args) {
 		
-		AlgoExpert algo = new AlgoExpert();
+		Queue algo = new Queue();
 		algo.enQueue(10);
 		algo.enQueue(20);
 		algo.enQueue(30);

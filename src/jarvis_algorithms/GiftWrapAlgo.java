@@ -23,13 +23,13 @@ public class GiftWrapAlgo {
 		if (n < 3) return;
 		
 		// initialize result
-		Vector<Points> hull = new Vector<Points>();
+		Stack<Points> hull = new Stack<Points>();
 		
 		// find left most point
-		int l = 0;
+		int left = 0;
 		for (int i=1; i<n; i++) {
-			if (points[i].x < points[l].x) {
-				l = i;
+			if (points[i].x < points[left].x) {
+				left = i;
 			}
 		}
 		/*
@@ -37,7 +37,7 @@ public class GiftWrapAlgo {
 		 * start point again. this loop runs 0(h) times where h is number of 
 		 * points in result or output 
 		*/
-		int p = l,q;
+		int p = left,q;
 		do {
 			// add current point to result
 			hull.add(points[p]);
@@ -55,11 +55,11 @@ public class GiftWrapAlgo {
 				}
 				
 			}
-			// now q is most anti-clockwise with.r.t p. set p as q for next iter
+			// now q is most anti-clockwise with.r.t p. set p as q for next iteration
 			// so that added q to result hull
 			p = q;
 		} 
-		while(p != l);
+		while(p != left);
 		
 		// print result
 		for (Points temp : hull) {
@@ -69,18 +69,23 @@ public class GiftWrapAlgo {
 	}
 	
 	public static void main(String[] args) {
+		
+			Random rand = new Random();
 			
-			Points[] points = new Points[7];
-			points[0] = new Points(0,3);
-			points[1] = new Points(2,3);
-			points[2] = new Points(1,1);
-			points[3] = new Points(2,1);
-			points[4] = new Points(3,0);
-			points[5] = new Points(0,0);
-			points[6] = new Points(3,3);
+			Scanner sn = new Scanner(System.in);
+			System.out.println("Enter number of points: ");
+			int num = sn.nextInt();
 			
-			int n = points.length;
-			convexHull(points, n);
+			Points point[] = new Points[num];
+			System.out.println("random points");
+			for (int i=0; i<num; i++) {
+				point[i] = new Points( rand.nextInt(100), rand.nextInt(100));
+				System.out.println("("+point[i].x +"," + point[i].y+")");
+				
+			}
+			
+			System.out.println("convex hull");
+			convexHull(point,num);
 		
 	}
 	

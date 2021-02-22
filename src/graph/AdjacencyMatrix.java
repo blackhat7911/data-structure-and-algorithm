@@ -2,8 +2,12 @@ package graph;
 
 public class AdjacencyMatrix {
 	
-	int size = 4;
+	int size;
 	int[][] matrix = new int[size][size];
+	
+	AdjacencyMatrix(int size) {
+		this.size = size;
+	}
 	
 	void addEdges(int sourceNode, int destinationNode) {
 		matrix[sourceNode][destinationNode] = 1;
