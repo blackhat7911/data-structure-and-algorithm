@@ -1,7 +1,7 @@
 package bfs;
 
 public class Stack {
-    // implementing stack using linkedlist
+    // implementing stack using linked list
     public static class Node {
         int data;
         Node next;
@@ -70,11 +70,8 @@ public class Stack {
     public static void main(String[] args) {
         Stack newObj = new Stack();
         newObj.push(10);
-        System.out.println(newObj.pop());
-        System.out.println(newObj.pop());
         newObj.push(20);
         newObj.push(30);
-        System.out.println(newObj.pop());
         System.out.println(newObj.pop());
     }
 

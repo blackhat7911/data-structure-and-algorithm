@@ -1,5 +1,9 @@
 package linkedList;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Iterator;
+
 public class Implementation {
 	
 	int vertex = 4;
@@ -10,6 +14,39 @@ public class Implementation {
             list[i] = new LinkedList();
         }
     }
+	
+	public List<Integer> getAdjNode(int value){
+		
+		List<Integer> adjList = new ArrayList<>();
+		
+		for(int i=0; i<list[value].size(); i++) {
+			adjList.add(list[value].getData(i));
+		}
+		return adjList;
+	}
+	
+	public void BFS(int rootNode) {
+		
+		System.out.println("Printing BFS ");
+		
+		boolean visited[] = new boolean[vertex];
+		Queue q = new Queue();
+		visited[rootNode] = true;
+		q.enQueue(rootNode);
+		while(q.size()!=0) {
+			int value = q.deQueue();
+			System.out.println(value);
+			Iterator<Integer> iter = getAdjNode(value).iterator();
+			while(iter.hasNext()) {
+				int adjValue = iter.next();
+				if(!visited[adjValue]) {
+					q.enQueue(adjValue);
+					visited[adjValue] = true;
+				}
+			}
+		}
+				
+	}
 	
 	public void addEdges(int source, int destination) {
 		list[source].addNode(destination);
@@ -47,6 +84,13 @@ public class Implementation {
         imp.addEdges(1, 2);
         imp.addEdges(2, 3);
         imp.printGraph();
+        
+        System.out.println();
+        System.out.println("Printing BFS");
+        System.out.println(imp.getAdjNode(2));
+        imp.BFS(0);
+        
+
     }
 	
 }
